@@ -1,10 +1,9 @@
 import antfu from '@antfu/eslint-config';
 
 export default antfu({
-  // 启用 Vue 支持
   vue: true,
-  // 启用 TypeScript 支持
   typescript: true,
+  unocss: true,
 
   // 代码风格配置
   stylistic: {

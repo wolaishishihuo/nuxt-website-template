@@ -60,15 +60,15 @@ const parallaxY = computed(() => (elementY.value / elementHeight.value - 0.5) * 
     <!-- Hero Section -->
     <section
       ref="heroRef"
-      class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700"
+      class="flex min-h-screen items-center justify-center relative overflow-hidden from-violet-600 to-indigo-700 via-purple-600 bg-gradient-to-br"
     >
       <!-- 动态背景 -->
-      <div class="absolute inset-0 overflow-hidden">
+      <div class="inset-0 absolute overflow-hidden">
         <!-- 浮动圆形 -->
         <div
           v-for="i in 6"
           :key="i"
-          class="absolute rounded-full bg-white/10"
+          class="rounded-full bg-white/10 absolute"
           :class="[
             i % 2 === 0 ? 'w-64 h-64' : 'w-32 h-32',
             i % 3 === 0 ? 'blur-2xl' : 'blur-xl'
@@ -82,23 +82,23 @@ const parallaxY = computed(() => (elementY.value / elementHeight.value - 0.5) * 
         />
         <!-- 网格背景 -->
         <div
-          class="absolute inset-0 opacity-20"
+          class="opacity-20 inset-0 absolute"
           style="background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 50px 50px;"
           :style="{ transform: `translate(${parallaxX * 10}px, ${parallaxY * 10}px)` }"
         />
       </div>
 
       <!-- 主内容 -->
-      <div class="container-base relative z-10 text-center text-white py-20">
+      <div class="text-white container-base py-20 text-center relative z-10">
         <!-- Badge -->
         <div
           v-motion
           v-bind="fadeUp(0)"
-          class="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/10 backdrop-blur-sm border border-white/20"
+          class="mb-8 px-4 py-2 border border-white/20 rounded-full bg-white/10 opacity-0 inline-flex gap-2 items-center backdrop-blur-sm"
         >
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+          <span class="flex h-2 w-2 relative">
+            <span class="rounded-full bg-green-400 opacity-75 inline-flex h-full w-full absolute animate-ping" />
+            <span class="rounded-full bg-green-500 inline-flex h-2 w-2 relative" />
           </span>
           <span class="text-sm font-medium">v1.0 正式发布</span>
         </div>
@@ -107,9 +107,9 @@ const parallaxY = computed(() => (elementY.value / elementHeight.value - 0.5) * 
         <h1
           v-motion
           v-bind="fadeUp(100)"
-          class="text-5xl md:text-7xl font-black mb-6 leading-tight"
+          class="text-5xl leading-tight font-black mb-6 opacity-0 md:text-7xl"
         >
-          构建<span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-400">现代化</span>
+          构建<span class="text-transparent from-yellow-300 to-orange-400 bg-gradient-to-r bg-clip-text">现代化</span>
           <br>
           企业官网
         </h1>
@@ -118,7 +118,7 @@ const parallaxY = computed(() => (elementY.value / elementHeight.value - 0.5) * 
         <p
           v-motion
           v-bind="fadeUp(200)"
-          class="text-xl md:text-2xl opacity-90 mb-10 max-w-2xl mx-auto leading-relaxed"
+          class="text-xl leading-relaxed mx-auto mb-10 opacity-0 max-w-2xl md:text-2xl"
         >
           基于 Nuxt 4 + UnoCSS + VueUse Motion
           <br class="hidden md:block">
@@ -129,21 +129,21 @@ const parallaxY = computed(() => (elementY.value / elementHeight.value - 0.5) * 
         <div
           v-motion
           v-bind="fadeUp(300)"
-          class="flex flex-wrap justify-center gap-4"
+          class="opacity-0 flex flex-wrap gap-4 justify-center"
         >
           <a
             href="#features"
-            class="group inline-flex items-center gap-2 px-8 py-4 bg-white text-purple-700 font-bold rounded-xl hover:(-translate-y-1 shadow-2xl shadow-white/25) transition-all duration-300"
+            class="group text-purple-700 font-bold px-8 py-4 rounded-xl bg-white inline-flex gap-2 transition-all duration-300 items-center hover:(shadow-2xl shadow-white/25 -translate-y-1)"
           >
             开始使用
-            <span class="group-hover:translate-x-1 transition-transform">→</span>
+            <span class="transition-transform group-hover:translate-x-1">→</span>
           </a>
           <a
             href="https://github.com"
             target="_blank"
-            class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 font-bold rounded-xl hover:(bg-white/20 border-white/50) transition-all duration-300"
+            class="font-bold px-8 py-4 border border-white/30 rounded-xl bg-white/10 inline-flex gap-2 transition-all duration-300 items-center backdrop-blur-sm hover:(border-white/50 bg-white/20)"
           >
-            <span class="i-carbon-logo-github w-5 h-5" />
+            <span class="i-carbon-logo-github h-5 w-5" />
             GitHub
           </a>
         </div>
@@ -152,12 +152,12 @@ const parallaxY = computed(() => (elementY.value / elementHeight.value - 0.5) * 
         <div
           v-motion
           v-bind="fadeIn(500)"
-          class="mt-16 flex flex-wrap justify-center gap-3"
+          class="mt-16 opacity-0 flex flex-wrap gap-3 justify-center"
         >
           <span
             v-for="tech in techStack"
             :key="tech.name"
-            class="px-4 py-2 rounded-lg bg-white/10 backdrop-blur-sm text-sm font-medium border border-white/10 hover:(scale-105 bg-white/20) transition-all cursor-default"
+            class="text-sm font-medium px-4 py-2 border border-white/10 rounded-lg bg-white/10 cursor-default transition-all backdrop-blur-sm hover:(bg-white/20 scale-105)"
           >
             {{ tech.name }}
           </span>
@@ -168,10 +168,10 @@ const parallaxY = computed(() => (elementY.value / elementHeight.value - 0.5) * 
       <div
         v-motion
         v-bind="fadeIn(800)"
-        class="absolute bottom-8 left-1/2 -translate-x-1/2"
+        class="opacity-0 bottom-8 left-1/2 absolute -translate-x-1/2"
       >
-        <div class="w-6 h-10 rounded-full border-2 border-white/50 flex justify-center pt-2">
-          <div class="w-1 h-2 bg-white rounded-full animate-bounce" />
+        <div class="pt-2 border-2 border-white/50 rounded-full flex h-10 w-6 justify-center">
+          <div class="rounded-full bg-white h-2 w-1 animate-bounce" />
         </div>
       </div>
     </section>
@@ -180,43 +180,43 @@ const parallaxY = computed(() => (elementY.value / elementHeight.value - 0.5) * 
     <section id="features" class="py-24 bg-gray-50">
       <div class="container-base">
         <!-- Section Header -->
-        <div class="text-center mb-16">
+        <div class="mb-16 text-center">
           <span
             v-motion
             v-bind="fadeUp(0)"
-            class="inline-block px-4 py-1 mb-4 text-sm font-semibold text-purple-600 bg-purple-100 rounded-full"
+            class="text-sm text-purple-600 font-semibold mb-4 px-4 py-1 rounded-full bg-purple-100 inline-block"
           >
             核心特性
           </span>
           <h2
             v-motion
             v-bind="fadeUp(100)"
-            class="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+            class="text-4xl text-gray-900 font-bold mb-4 md:text-5xl"
           >
             为什么选择我们？
           </h2>
           <p
             v-motion
             v-bind="fadeUp(200)"
-            class="text-xl text-gray-600 max-w-2xl mx-auto"
+            class="text-xl text-gray-600 mx-auto max-w-2xl"
           >
             现代化技术栈，卓越的开发体验
           </p>
         </div>
 
         <!-- Features Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="gap-6 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
           <div
             v-for="(feature, index) in features"
             :key="feature.title"
             v-motion
             v-bind="scaleIn(index * 100)"
-            class="group p-8 bg-white rounded-2xl shadow-sm hover:(shadow-xl -translate-y-2) transition-all duration-300 border border-gray-100"
+            class="group p-8 border border-gray-100 rounded-2xl bg-white shadow-sm transition-all duration-300 hover:(shadow-xl -translate-y-2)"
           >
-            <div class="w-14 h-14 mb-6 flex items-center justify-center text-3xl bg-gradient-to-br from-purple-100 to-indigo-100 rounded-xl group-hover:(scale-110 rotate-3) transition-transform duration-300">
+            <div class="text-3xl mb-6 rounded-xl flex h-14 w-14 transition-transform duration-300 items-center justify-center from-purple-100 to-indigo-100 bg-gradient-to-br group-hover:(rotate-3 scale-110)">
               {{ feature.icon }}
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">
+            <h3 class="text-xl text-gray-900 font-bold mb-2">
               {{ feature.title }}
             </h3>
             <p class="text-gray-600">
@@ -228,42 +228,42 @@ const parallaxY = computed(() => (elementY.value / elementHeight.value - 0.5) * 
     </section>
 
     <!-- CTA Section -->
-    <section class="py-24 bg-gradient-to-r from-purple-600 to-indigo-600 relative overflow-hidden">
+    <section class="py-24 relative overflow-hidden from-purple-600 to-indigo-600 bg-gradient-to-r">
       <!-- 装饰元素 -->
-      <div class="absolute inset-0">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-        <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+      <div class="inset-0 absolute">
+        <div class="rounded-full bg-white/10 h-96 w-96 left-1/4 top-0 absolute blur-3xl" />
+        <div class="rounded-full bg-white/10 h-64 w-64 bottom-0 right-1/4 absolute blur-3xl" />
       </div>
 
-      <div class="container-base relative z-10 text-center text-white">
+      <div class="text-white container-base text-center relative z-10">
         <h2
           v-motion
           v-bind="fadeUp(0)"
-          class="text-4xl md:text-5xl font-bold mb-6"
+          class="text-4xl font-bold mb-6 md:text-5xl"
         >
           准备好开始了吗？
         </h2>
         <p
           v-motion
           v-bind="fadeUp(100)"
-          class="text-xl opacity-90 mb-10 max-w-xl mx-auto"
+          class="text-xl mx-auto mb-10 opacity-90 max-w-xl"
         >
           立即获取模板，快速搭建你的专属官网
         </p>
         <div
           v-motion
           v-bind="fadeUp(200)"
-          class="flex flex-wrap justify-center gap-4"
+          class="flex flex-wrap gap-4 justify-center"
         >
           <a
             href="#"
-            class="px-8 py-4 bg-white text-purple-700 font-bold rounded-xl hover:(-translate-y-1 shadow-2xl) transition-all duration-300"
+            class="text-purple-700 font-bold px-8 py-4 rounded-xl bg-white transition-all duration-300 hover:(shadow-2xl -translate-y-1)"
           >
             免费下载
           </a>
           <a
             href="#"
-            class="px-8 py-4 bg-transparent border-2 border-white/50 font-bold rounded-xl hover:(bg-white/10 border-white) transition-all duration-300"
+            class="font-bold px-8 py-4 border-2 border-white/50 rounded-xl bg-transparent transition-all duration-300 hover:(border-white bg-white/10)"
           >
             在线演示
           </a>
@@ -272,7 +272,7 @@ const parallaxY = computed(() => (elementY.value / elementHeight.value - 0.5) * 
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-gray-900 text-gray-400">
+    <footer class="text-gray-400 py-12 bg-gray-900">
       <div class="container-base text-center">
         <p class="mb-4">
           Made with ❤️ using
