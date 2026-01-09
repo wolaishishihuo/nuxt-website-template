@@ -34,6 +34,7 @@ export default antfu({
     // Vue 相关规则
     'vue/multi-word-component-names': 'off',
     'vue/no-multiple-template-root': 'off',
+    'vue/comma-dangle': ['error', 'never'],
 
     // 允许 console 在开发环境
     'no-console': 'warn',

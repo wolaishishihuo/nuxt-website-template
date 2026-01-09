@@ -19,6 +19,11 @@ export default defineNuxtConfig({
   // 开发工具
   devtools: { enabled: true },
 
+  // 特性配置
+  features: {
+    inlineStyles: false // UnoCSS 需要禁用内联样式
+  },
+
   // TypeScript 配置
   // 注意：typeCheck 暂时禁用，因为 vite-plugin-checker 与 vue-tsc@3.x 存在兼容性问题
   // 详见：https://github.com/fi3ework/vite-plugin-checker/issues
@@ -27,10 +32,16 @@ export default defineNuxtConfig({
   },
 
   // CSS 配置
-  css: ['~/assets/css/main.scss'],
+  css: [
+    '@unocss/reset/tailwind.css' // 现代 CSS Reset
+  ],
 
   // 模块配置
   modules: [
+    // UnoCSS - 原子化 CSS
+    '@unocss/nuxt',
+    // 动画库
+    '@vueuse/motion/nuxt',
     // SEO
     '@nuxtjs/seo',
     // Google Fonts
@@ -77,17 +88,6 @@ export default defineNuxtConfig({
   // 构建配置
   build: {
     transpile: ['@headlessui/vue']
-  },
-
-  // Vite 配置
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: ''
-        }
-      }
-    }
   }
 
 });
