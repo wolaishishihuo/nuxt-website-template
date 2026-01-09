@@ -1,0 +1,71 @@
+{
+  "name": "nuxt-website-template",
+  "type": "module",
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.25.0",
+  "description": "基于 Nuxt 4 的现代化开源官网模板",
+  "author": "wolaishishihuo",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wolaishishihuo/nuxt-website-template.git"
+  },
+  "keywords": [
+    "nuxt",
+    "nuxt4",
+    "vue",
+    "website",
+    "template",
+    "scss",
+    "typescript",
+    "open-source"
+  ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "nuxi typecheck"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.23",
+    "@heroicons/vue": "^2.2.0",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/seo": "^3.3.0",
+    "@vueuse/nuxt": "^13.4.0",
+    "lucide-vue-next": "^0.523.0",
+    "nuxt": "^4.2.2",
+    "nuxt-link-checker": "^4.3.9",
+    "swiper": "^11.2.9",
+    "vue": "^3.5.26",
+    "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^6.6.1",
+    "@nuxt/devtools": "^3.1.1",
+    "@nuxt/eslint": "^1.12.1",
+    "@pinia/nuxt": "^0.11.3",
+    "@types/node": "^24.0.4",
+    "eslint": "^9.39.2",
+    "eslint-plugin-format": "^1.1.0",
+    "pinia": "^3.0.4",
+    "sass": "^1.89.2",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.1.8"
+  },
+  "pnpm": {
+    "allowedDeprecatedVersions": {
+      "@types/parse-path": "7"
+    },
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild"
+    ]
+  }
+}
